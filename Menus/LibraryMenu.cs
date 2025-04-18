@@ -46,7 +46,7 @@ namespace LibraryProject.Menus
                             case 2:
                                 int Result = SelectShelf();
 
-                                // Sprawdza obecność sekcji
+                                // Sprawdza obecność półki
                                 if (Result == -1)
                                 {
                                     break;
@@ -112,25 +112,25 @@ namespace LibraryProject.Menus
                 }
             }
 
-            // Metoda wywołująca menu sekcji
+            // Metoda wywołująca menu półek
             private static void EditShelf()
             {
                 Console.Clear();
 
-                // Sprawdzenie obecność sekcji
+                // Sprawdzenie obecność półki
                 if (Library.shelfs.Count == 0)
                 {
                     OnAction?.Invoke("Brak półki do edycji");
                     return;
                 }
-                // Wyświtela informację o sekcjach
+                // Wyświtela informację o półkach
                 Library.DisplayAllShelfs();
                 Console.WriteLine();
                 Console.Write($"Wybierz półkę:");
-                // Wywołanie menu magazynu
+                // Wywołanie menu biblioteki
                 ShelfsMenu.ShelfManager.ShelfMain(MainMenuManager.SelectNumber(1, Library.shelfs.Count) - 1);
             }
-            // Metoda dodająca sekcję
+            // Metoda dodająca półkę
             private static void AddShelf()
             {
                 Console.Clear();
@@ -142,18 +142,18 @@ namespace LibraryProject.Menus
                 
                 return;
             }
-            // Metoda usuwająca sekcję
+            // Metoda usuwająca półkę
             private static void RemoveShelf()
             {
                 Console.Clear();
 
-                // Sprawdzenia obecności sekcji
+                // Sprawdzenia obecności półki
                 if (Library.shelfs.Count == 0)
                 {
                     OnAction?.Invoke("Brak półki do usunięcia");
                     return;
                 }
-                // Wyświetlanie wszystkich sekcji
+                // Wyświetlanie wszystkich półek
                 Library.DisplayAllShelfs();
                 Console.WriteLine();
 
@@ -166,7 +166,7 @@ namespace LibraryProject.Menus
                 OnAction?.Invoke($"Półka #{selected_to_remove + 1} była usunięta");
                 return;
             }
-            // Metoda wyświetlająca wszystkie sekcję
+            // Metoda wyświetlająca wszystkie półki
             private static void DisplayAllShelfs()
             {
                 Console.Clear();
@@ -175,10 +175,10 @@ namespace LibraryProject.Menus
                 OnAction?.Invoke("");
                 return;
             }
-            // Funkcja zwracająca indeks sekcji od użytkownika
+            // Funkcja zwracająca indeks półki od użytkownika
             private static int SelectShelf()
             {
-                // Sprawdza obecność sekcji
+                // Sprawdza obecność półki
                 if (Library.shelfs.Count == 0)
                 {
                     Console.Clear();

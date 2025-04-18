@@ -3,9 +3,9 @@ password: 9118a52c7aa4e34d566164199eb9822def575908b1186a6449e2f667b38127b8
 role: Admin
 
 login: Mike
-password: Manager123
+password: 61b3ad24336c20515573dc7d875cb9295e8462cec645c3604ac58f1e241e20e0
 role: Manager
 
 login: John
-password: Client456
+password: 9a46373ff255e5afc1d2abcf3da21af7cfaf503deddcb6226ae620b195bcfd1d
 role: Client

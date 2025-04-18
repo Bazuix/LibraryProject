@@ -1,5 +1,6 @@
 ﻿namespace LibraryProject.Interfaces
 {
+ 
     public interface IBook
     {
         void ShowInfo();

@@ -7,6 +7,7 @@ namespace LibraryProject.Menus
 {
     class DataSystem
     {
+        //Metoda do zapisywania danych do pliku
         public static void SaveData()
         {
             string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data");
@@ -56,6 +57,7 @@ namespace LibraryProject.Menus
             }
         }
 
+        //bool sprawdzające poprawność danych
         private static bool CheckData(string filepath)
         {
             bool result = true;
@@ -138,6 +140,7 @@ namespace LibraryProject.Menus
             return result;
         }
 
+        //Metoda wczytująca dane
         public static void GetData()
         {
             string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data");

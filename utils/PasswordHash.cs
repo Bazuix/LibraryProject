@@ -11,6 +11,7 @@ namespace LibraryProject.utils
     internal class PasswordHash
     {
 
+        //Metoda hashująca hasło
         public static string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -22,7 +23,7 @@ namespace LibraryProject.utils
         }
 
 
-
+        //Metoda sprawdzająca zhashowane hasło
         public static bool VerifyPassword(string inputPassword, string storedHash)
         {
             string inputHash = HashPassword(inputPassword);

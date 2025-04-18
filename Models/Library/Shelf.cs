@@ -2,7 +2,7 @@
 {
         public class Shelf
         {
-            // Podstawowe wartości sekcji
+            // Podstawowe wartości półki
             public int id_Shelf { get; set; }
             public List<Books.Book> Books = new List<Books.Book>();
 
@@ -16,12 +16,12 @@
         {
         }
 
-        // Dodaje pudełko do sekcji
+        // Dodaje książkę do półki
         public void AddBook(Books.Book book)
             {
                 Books.Add(book);
             }
-            // Usuwa pudełko z sekcji
+            // Usuwa książkę z półki
             public void RemoveBook(int id)
             {
                 Books.RemoveAt(id);
@@ -30,13 +30,13 @@
                     Books[i].id = i;
                 }
             }
-            // Wyświetla informację o wszystkich pudełkach
+            // Wyświetla informację o wszystkich książkach
             public void DisplayInfo()
             {
                 Console.WriteLine($"Półka #{id_Shelf+1}");
                 Console.WriteLine("Zawartość:");
 
-                //Sprawdzenie czy jest sekcja pusta
+                //Sprawdzenie czy półka jest pusta
                 if(Books.Count == 0)
                 {
                     Console.WriteLine("Półka jest pusta");

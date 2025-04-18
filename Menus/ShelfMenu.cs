@@ -8,7 +8,7 @@ namespace LibraryProject.Menus
 {
     public class ShelfsMenu
     {
-        // Menu sekcji
+        // Menu Półek
        public static class ShelfManager
         {
             public delegate void MenuAction(string message);
@@ -90,7 +90,7 @@ namespace LibraryProject.Menus
                     }
                 }
             }
-            // Metoda dodająca pudełko
+            // Metoda dodająca książkę
             public static void AddBook(int which)
             {
                 Console.Clear();
@@ -113,7 +113,7 @@ namespace LibraryProject.Menus
 
                 Console.Clear();
 
-                // Tworzy pudełko z podanymi wartościami 
+                // Tworzy książkę o podanym typie z podanymi wartościami 
                 if (type == 1)
                 {
                     book = new Books.BookFantasy(Library.shelfs[which].Books.Count, which, countInBook, typeObject, LogInSystem.user ?? new User("root",Role.Client));
@@ -123,7 +123,7 @@ namespace LibraryProject.Menus
                     book = new Books.BookThriller(Library.shelfs[which].Books.Count, which, countInBook, typeObject,LogInSystem.user ?? new User("root", Role.Client));
                 }
 
-                // Dodaje pudełko do sekcji
+                // Dodaje książkę do półki
                 Library.shelfs[which].AddBook(book);
                 Logger.SendLog("Dodał książkę");
 
@@ -132,15 +132,14 @@ namespace LibraryProject.Menus
 
                 return;
             }
-            // Metoda przesuwa pudełko
+            // Metoda przesuwa książkę na inną półkę
             private static void MoveBook(int which)
             {
                 Console.Clear();
 
-                // Sprawdzenie czy podana sekcja jest pusta
+                // Sprawdzenie czy podana półka jest pusta
                 if (Library.shelfs[which].Books.Count == 0)
                 {
-                    // Zdarzenie kończy operację i wyświetla komunikat
                     OnAction?.Invoke("Brak książek na tej półce!");
                     return;
                 }
@@ -156,48 +155,44 @@ namespace LibraryProject.Menus
 
                 Console.Clear();
                 Logger.SendLog($"Przeniosł książkę z półki #{which} na półkę #{new_id_shelf}");
-                // Zdarzenie kończy operację i wyświetla komunikat
+
                 OnAction?.Invoke("książka została przeniesiona");
                 return;
 
             }
-            // Metoda wyświetlająca wszystkie pudełka
+            // Metoda wyświetlająca wszystkie książki
             private static void DisplayAllBooks(int which)
             {
                 Console.Clear();
 
-                // Sprawdzenie czy podana sekcja jest pusta
                 if (Library.shelfs[which].Books.Count == 0)
                 {
-                    // Zdarzenie kończy operację i wyświetla komunikat
                     OnAction?.Invoke("Brak książek na tej półce!");
                     return;
                 }
 
                 Library.shelfs[which].DisplayInfo();
-                // Zdarzenie kończy operację i wyświetla komunikat
+
                 OnAction?.Invoke("");
                 return;
             }
-            // Metoda wyświetlająca informację o wybranym pudełku
+            // Metoda wyszukująca daną książkę po ID
             public static void FindBook(int which)
             {
                 Console.Clear();
 
-                // Sprawdzenie czy podana sekcja jest pusta
                 if (Library.shelfs[which].Books.Count == 0)
                 {
-                    // Zdarzenie kończy operację i wyświetla komunikat
                     OnAction?.Invoke("Brak książek na tej półce!");
                     return;
                 }
 
-                // Pobiera od użytkownika indeks pudełka
+                // Pobiera od użytkownika indeks książki
                 Console.WriteLine($"Wybierz książkę(x{Library.shelfs[which].Books.Count}): ");
                 int whichBook = MainMenuManager.SelectNumber(1, Library.shelfs[which].Books.Count) - 1;
                 Console.WriteLine();
 
-                // Sprawdzenie czy użytkownik może zobaczyć informację o pudełku
+                // Sprawdzenie czy użytkownik może zobaczyć informację o książce
                 if (Library.shelfs[which].Books[whichBook].owner.UserName == LogInSystem.user?.UserName || LogInSystem.user?.Role != Role.Client)
                 {
                     Library.shelfs[which].Books[whichBook].ShowInfo();
@@ -206,23 +201,19 @@ namespace LibraryProject.Menus
                 {
                     Console.WriteLine($"Książka nie należy do {LogInSystem.user?.UserName}");
                 }
-
-                // Zdarzenie kończy operację i wyświetla komunikat
                 OnAction?.Invoke("");
                 return;
             }
-            // Metoda zmieniająca informację o pudełku
+            // Metoda zmieniająca informację o książce
             private static void ChangeBook(int which)
             {
-                // Sprawdzenie czy podana sekcja jest pusta
                 if (Library.shelfs[which].Books.Count == 0)
                 {
-                    // Zdarzenie kończy operację i wyświetla komunikat
                     OnAction?.Invoke("Brak książek na tej półce!");
                     return;
                 }
 
-                // Pobiera od użytkownika wartości pudełka
+                // Pobiera od użytkownika wartości książki
                 Console.Write($"Wybierz książkę(x{Library.shelfs[which].Books.Count}): ");
                 int selectedBook_toChange = MainMenuManager.SelectNumber(1, Library.shelfs[which].Books.Count) - 1;
                 Console.Clear();
@@ -234,25 +225,23 @@ namespace LibraryProject.Menus
                 int count = MainMenuManager.SelectNumber(1, 9999);
                 Console.Clear();
 
-                // Zmienia pudełko
+                // Zmienia książkę
                 Library.shelfs[which].Books[selectedBook_toChange].ChangeInfo(objectsName, count);
                 Logger.SendLog($"Zmienił dane książki #{selectedBook_toChange} z półki #{which}");
-                // Zdarzenie kończy operację i wyświetla komunikat
+
                 OnAction?.Invoke("Książka została zmieniona");
                 return;
             }
-            // Metoda usuwająca pudełko
+            // Metoda usuwająca książkę
             private static void RemoveBook(int which)
             {
-                // Sprawdzenie czy podana sekcja jest pusta
                 if (Library.shelfs[which].Books.Count == 0)
                 {
-                    // Zdarzenie kończy operację i wyświetla komunikat
                     OnAction?.Invoke("Brak książki na tej półce!");
                     return;
                 }
 
-                // Pobieranie od użytkownika indeksu pudełka i usuwanie go
+                // Pobieranie od użytkownika indeksu książki i usuwania jej
                 Console.Write($"Wybierz książkę(x{Library.shelfs[which].Books.Count}): ");
                 int whichBook = MainMenuManager.SelectNumber(1, Library.shelfs[which].Books.Count) - 1;
                 Library.shelfs[which].RemoveBook(whichBook);
@@ -260,10 +249,10 @@ namespace LibraryProject.Menus
                 Console.WriteLine();
 
                 Logger.SendLog($"Usunął książkę #{whichBook} z półki #{which}");
-                // Zdarzenie kończy operację i wyświetla komunikat
                 OnAction?.Invoke("Książka została usunięta");
                 return;
             }
+            //Menu do filtrowania książek
             private static void FilterBooksMenu()
             {
                 while (true)
@@ -278,16 +267,19 @@ namespace LibraryProject.Menus
                     switch (MainMenuManager.SelectNumber(1, 4))
                     {
                         case 1:
+                            //Filtrowanie po tytule
                             Console.Clear();
                             string title = MainMenuManager.SelectText("Podaj tytuł książki:");
                             ShowFilteredBooks(Filter.FilterByTitle(title));
                             break;
                         case 2:
+                            //Filtrowanie po typie
                             Console.Clear();
                             string type = MainMenuManager.SelectText("Podaj typ książki (np. Fantasy, Thriller):");
                             ShowFilteredBooks(Filter.FilterByType(type));
                             break;
                         case 3:
+                            //Filtrowanie po ilości stron
                             Console.Clear();
                             int pageCount = MainMenuManager.SelectNumber(1, 9999);
                             ShowFilteredBooks(Filter.FilterByPageCount(pageCount));
@@ -300,6 +292,7 @@ namespace LibraryProject.Menus
                     Console.ReadKey();
                 }
             }
+            //Metoda pokazująca przefiltrowane książki
             private static void ShowFilteredBooks(List<Book> books)
             {
                 Console.Clear();

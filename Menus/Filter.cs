@@ -10,6 +10,7 @@ namespace LibraryProject.Menus
 {
     public class Filter
     {
+        //Filtrowanie po tytule książki
         public static List<Book> FilterByTitle(string title)
         {
             return Library.shelfs.SelectMany(s => s.Books)
@@ -17,12 +18,14 @@ namespace LibraryProject.Menus
                                  .ToList();
         }
 
+        //Filtrowanie po typie książki
         public static List<Book> FilterByType(string typeName)
         {
             return Library.shelfs.SelectMany(s => s.Books)
                                  .Where(b => b.GetType().Name.Contains(typeName, StringComparison.OrdinalIgnoreCase))
                                  .ToList();
         }
+        //filtrowanie po liczbie stron
         public static List<Book> FilterByPageCount(int pages)
         {
             return Library.shelfs
@@ -31,7 +34,7 @@ namespace LibraryProject.Menus
                 .ToList();
         }
 
-
+        //wyświetlanie przefiltrowanych książek
         public static void DisplayBooks(List<Book> books)
         {
             foreach (var book in books)

@@ -40,18 +40,18 @@ namespace LibraryProject.Models.Library
                 this.count = count;
                 _owner = owner;
             }
-            // Metoda wyświetlająca informację o pudełku
+            // Metoda wyświetlająca informację o książce
             public virtual void ShowInfo()
             {
                 Console.WriteLine($"id: {id}, półka: {id_shelf + 1}, tytuł: {objectsName}, stron: {count}");
             }
-            // Metoda zmieniająca informację o pudełku
+            // Metoda zmieniająca informację o książce
             public void ChangeInfo(string objectsName, int count)
             {
                 this.objectsName = objectsName;
                 this.count = count;
             }
-            // Metoda zmieniająca pozycję pudełka
+            // Metoda zmieniająca pozycję książki
             public void MoveBook(int id_shelf)
             {
                 this.id_shelf = id_shelf;
@@ -59,28 +59,28 @@ namespace LibraryProject.Models.Library
         }
         public class BookFantasy : Book
         {
-            public string FantasyType { get; private set; }
-            public BookFantasy(int id, int id_shelf, int count, string FantasyType, User owner) : base(id, FantasyType, count,owner)
+            public string FantasyTitle { get; private set; }
+            public BookFantasy(int id, int id_shelf, int count, string FantasyTitle, User owner) : base(id, FantasyTitle, count,owner)
             {
-                this.FantasyType = FantasyType;
+                this.FantasyTitle = FantasyTitle;
             }
             public override void ShowInfo()
             {
                 base.ShowInfo();
-                Console.WriteLine($"Typ fantasy: {FantasyType}");
+                Console.WriteLine($"Fantasy o tytule: {FantasyTitle}");
             }
         }
         public class BookThriller : Book
         {
-            public string ThrillerType { get; private set; }
-            public BookThriller (int id, int id_shelf,int count, string ThrillerType, User owner) : base(id, ThrillerType, count, owner)
+            public string ThrillerTitle { get; private set; }
+            public BookThriller (int id, int id_shelf,int count, string ThrillerTitle, User owner) : base(id, ThrillerTitle, count, owner)
             {
-                this.ThrillerType = ThrillerType;
+                this.ThrillerTitle = ThrillerTitle;
             }
             public override void ShowInfo()
             {
                 base.ShowInfo();
-                Console.WriteLine($"Typ thrilleru: {ThrillerType}");
+                Console.WriteLine($"Thriller o tytule: {ThrillerTitle}");
             }
         }
     }

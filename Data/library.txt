@@ -1,7 +1,10 @@
 Półka count: 2
 Półka: 0
-Książki Count: 1
-Książki: 0, Thriller, 34, tg
+Książki Count: 2
+Książki: 0, Thriller, 234, 	Billy_Summers
+Książki: 1, Thriller, 456, 	Nieznajomy
 Półka: 1
-Książki Count: 1
-Książki: 0, Fantasy, 34, ff
+Książki Count: 3
+Książki: 0, Fantasy, 765, Wiedźmin
+Książki: 1, Fantasy, 345, Władcy_Pierścieni
+Książki: 2, Fantasy, 154, Opowieści_z_Narnii

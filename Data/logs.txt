@@ -1,3 +1,7 @@
 [2025-04-18 15:48:19] Lara Dodał półkę
 [2025-04-18 20:17:07] Lara Przeniosł książkę z półki #1 na półkę #0
 [2025-04-18 20:18:41] Lara Zmienił dane książki #1 z półki #0
+[2025-04-18 22:48:33] Lara Dodał książkę
+[2025-04-18 22:48:44] Lara Przeniosł książkę z półki #0 na półkę #1
+[2025-04-18 22:49:15] Lara Usunął książkę #3 z półki #1
+[2025-04-18 22:49:32] Lara Usunął półkę

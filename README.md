@@ -2,6 +2,8 @@
 
 A console-based library management system in C# using object-oriented programming principles. The system supports user login with role-based access (Admin, Manager, Client), dynamic book management (adding, moving, filtering).
 
+This is a school project so bare with me
+
 ---
 
 ## 🚀 Features

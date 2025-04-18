@@ -1,0 +1,7 @@
+Półka count: 2
+Półka: 0
+Książki Count: 1
+Książki: 0, Thriller, 34, tg
+Półka: 1
+Książki Count: 1
+Książki: 0, Fantasy, 34, ff

@@ -1,0 +1,11 @@
+login: Lara
+password: 9118a52c7aa4e34d566164199eb9822def575908b1186a6449e2f667b38127b8 
+role: Admin
+
+login: Mike
+password: Manager123
+role: Manager
+
+login: John
+password: Client456
+role: Client
